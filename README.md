@@ -45,6 +45,12 @@ node pure-object-composition.js 10000000  # < iterations
 
 ## Results
 
+This chart shows ten million iterations of the class/object being:
+
+1. Instantiated
+2. Print()'ed
+3. Pushed to an array
+
 [![Charts](./perf-chart.png)](./perf-chart.png)
 
 ### System Under Test
