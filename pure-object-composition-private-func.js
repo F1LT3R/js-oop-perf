@@ -3,23 +3,19 @@ const timeStamp = () => Number(new Date());
 const start = timeStamp();
 
 ///////////////////////////////////////////////////////////
+
 // Pure Object Composition
-
-function print() {
-  return `${this.id}, ${this.name}`;
-}
-
 const Person = (id, name) => ({
-  id,
-  name,
-  print,
+  print: function () {
+    return `${id}, ${name}`
+  },
 });
 
 ///////////////////////////////////////////////////////////
 
 const people = Array(iterations)
-  .fill('')
-  .map(() => Person(1, 'Me'));
+  .fill("")
+  .map(() => Person(1, "Me"));
 
 console.log(
   Object.assign(
@@ -30,6 +26,6 @@ console.log(
     {
       time: `${(timeStamp() - start) / 1000} seconds`,
     },
-    process.memoryUsage(),
-  ),
+    process.memoryUsage()
+  )
 );

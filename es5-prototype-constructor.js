@@ -3,16 +3,17 @@ const timeStamp = () => Number(new Date());
 const start = timeStamp();
 
 ///////////////////////////////////////////////////////////
-// ES5 Style class
+// ES5 Prototype in Constructor
 
 function Person(id, name) {
   this.id = id;
   this.name = name;
+
+  Person.prototype.print = function() {
+    return `${this.id}, ${this.name}`;
+  };
 }
 
-Person.prototype.print = function() {
-  return `${this.id}, ${this.name}`;
-};
 
 ///////////////////////////////////////////////////////////
 

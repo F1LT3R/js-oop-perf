@@ -3,23 +3,22 @@ const timeStamp = () => Number(new Date());
 const start = timeStamp();
 
 ///////////////////////////////////////////////////////////
-// Pure Object Composition
+// ES5 Prototype
 
-function print() {
-  return `${this.id}, ${this.name}`;
+function Person(id, name) {
+  this.id = id;
+  this.name = name;
 }
 
-const Person = (id, name) => ({
-  id,
-  name,
-  print,
-});
+Person.prototype.print = function() {
+  return `${this.id}, ${this.name}`;
+};
 
 ///////////////////////////////////////////////////////////
 
 const people = Array(iterations)
   .fill('')
-  .map(() => Person(1, 'Me'));
+  .map(() => new Person(1, 'Me'));
 
 console.log(
   Object.assign(
